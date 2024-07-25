@@ -123,6 +123,8 @@ if __name__ == "__main__":
             else:  # most lightmaps
                 assert width == header.width, error_msg
                 assert height == header.height, error_msg
+            assert lightmap_images[f"{lightmap}.{i}"].mode == "RGBA", "{lightmap}.{i} must have alpha channel"
+            # TODO: can we add an alpha channel if it's missing?
             print(f"{lightmap}.{i} {actual}")
     # organise & merge lightmap bytes
     sky_bytes, rtl_bytes = list(), list()
